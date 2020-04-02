@@ -188,6 +188,12 @@ const shared = css`
   }
 `
 
+const placeholder = css`
+  &::placeholder {
+    color: ${(props) => props.theme.colors.palette.charcoal400};
+  }
+`
+
 export const InputLayout = styled.div`
   ${shared}
   align-items: center;
@@ -196,6 +202,7 @@ export const InputLayout = styled.div`
   justify-content: space-evenly;
   width: 174px;
   input {
+    ${placeholder}
     border: none;
     background: transparent;
     flex: 1;
@@ -208,6 +215,7 @@ export const InputLayout = styled.div`
 
 const StyledInput = styled.input`
   ${shared}
+  ${placeholder}
 `
 
 export const InputIconStyle = styled(Flex)`
