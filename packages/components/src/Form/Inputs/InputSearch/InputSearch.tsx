@@ -208,6 +208,7 @@ const InputSearchComponent = forwardRef(
     return (
       <Flex
         className={className}
+        flexDirection={searchIconPosition === 'left' ? 'row' : 'row-reverse'}
         {...omit(props, inputPropKeys)}
         {...mouseHandlers}
       >

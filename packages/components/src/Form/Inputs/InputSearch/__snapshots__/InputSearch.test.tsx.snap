@@ -10,6 +10,9 @@ exports[`InputSearch default 1`] = `
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 0.875rem;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -188,7 +191,7 @@ exports[`InputSearch default 1`] = `
 </div>
 `;
 
-exports[`InputSearch hideSearchIcon removes the icon 1`] = `
+exports[`InputSearch searchIcon={false} removes the icon 1`] = `
 .c0 {
   border: solid 1px;
   border-color: #DEE1E5;
@@ -198,6 +201,9 @@ exports[`InputSearch hideSearchIcon removes the icon 1`] = `
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 0.875rem;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

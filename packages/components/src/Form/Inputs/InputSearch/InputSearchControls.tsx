@@ -60,6 +60,7 @@ export const InputSearchControlsInternal = forwardRef(
         onClick={onClear}
         tabIndex={-1}
         disabled={disabled}
+        ml="xsmall"
       />
     )
 
