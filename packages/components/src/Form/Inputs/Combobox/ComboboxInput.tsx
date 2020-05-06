@@ -83,6 +83,8 @@ export const ComboboxInputInternal = forwardRef(
       onChange,
       // might be controlled
       value: controlledValue,
+      validationType,
+      disabled,
       ...rest
     } = props
 
@@ -93,6 +95,7 @@ export const ComboboxInputInternal = forwardRef(
       state,
       transition,
       id,
+      isVisible,
     } = useContext(ComboboxContext)
 
     useInputPropRefs(props, ComboboxContext)
@@ -171,7 +174,22 @@ export const ComboboxInputInternal = forwardRef(
         {...rest}
         {...inputEvents}
         searchIcon={
-          <Icon name="CaretDown" size={20} color="palette.charcoal300" />
+          <span>
+            {validationType === 'error' && (
+              <Icon
+                name="Warning"
+                size={20}
+                color="palette.red500"
+                mr="xxsmall"
+              />
+            )}
+            <Icon
+              name={isVisible && !disabled ? 'CaretUp' : 'CaretDown'}
+              size={20}
+              color={disabled ? 'palette.charcoal300' : 'palette.charcoal500'}
+              mr="xxsmall"
+            />
+          </span>
         }
         searchIconPosition="right"
         ref={ref}
@@ -182,7 +200,7 @@ export const ComboboxInputInternal = forwardRef(
         id={`listbox-${id}`}
         autoComplete="off"
         aria-autocomplete="both"
-        validationType="error"
+        validationType={validationType}
         aria-activedescendant={
           navigationOption
             ? String(makeHash(navigationOption ? navigationOption.value : ''))
