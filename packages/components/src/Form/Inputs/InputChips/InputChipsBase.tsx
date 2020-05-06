@@ -119,7 +119,7 @@ export const InputChipsBaseInternal = forwardRef(
 
     return (
       <InputSearch
-        hideSearchIcon
+        searchIcon={false}
         ref={ref}
         value={inputValue}
         onChange={handleInputChange}

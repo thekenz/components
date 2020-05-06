@@ -38,8 +38,8 @@ test('InputSearch default', () => {
   assertSnapshot(<InputSearch />)
 })
 
-test('InputSearch hideSearchIcon removes the icon', () => {
-  assertSnapshot(<InputSearch hideSearchIcon />)
+test('InputSearch searchIcon={false} removes the icon', () => {
+  assertSnapshot(<InputSearch searchIcon={false} />)
 })
 
 test('InputSearch displays placeholder', () => {

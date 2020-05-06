@@ -48,7 +48,7 @@ export const MenuSearch: FC<MenuSearchProps> = ({ menuRef, ...props }) => {
     >
       <ObserveKeys except={[]} only={['down', 'up']}>
         <InputSearch
-          hideSearchIcon
+          searchIcon={false}
           borderRadius={0}
           border="none"
           borderBottom={`1px solid ${palette.charcoal200}`}

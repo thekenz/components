@@ -34,6 +34,7 @@ import React, {
   Ref,
   useState,
   useRef,
+  ReactElement,
 } from 'react'
 import styled from 'styled-components'
 import { ResponsiveValue, TLengthStyledSystem } from 'styled-system'
@@ -72,9 +73,13 @@ export interface InputSearchProps extends InputTextProps {
    */
   hideControls?: boolean
   /**
-   * hides search Icon
+   * hides or customizes search Icon
    */
-  hideSearchIcon?: boolean
+  searchIcon?: ReactElement | false
+  /**
+   * hides or customizes search Icon
+   */
+  searchIconPosition?: 'left' | 'right'
   /**
    * overrides the internal logic that shows the clear icon when there's a value
    */
@@ -121,7 +126,8 @@ const InputSearchComponent = forwardRef(
       className,
       defaultValue,
       hideControls = false,
-      hideSearchIcon = false,
+      searchIcon = <SearchIcon name="Search" size={30} />,
+      searchIconPosition = 'left',
       showClear,
       summary,
       value: controlledValue = '',
@@ -189,7 +195,6 @@ const InputSearchComponent = forwardRef(
 
     // 12/17/2019 removing type="search" since React doesn't support onSearch yet
     // resulting in undetectable changes that effect the value
-
     const input = (
       <InputText
         onChange={handleChange}
@@ -200,14 +205,13 @@ const InputSearchComponent = forwardRef(
         ref={ref}
       />
     )
-
     return (
       <Flex
         className={className}
         {...omit(props, inputPropKeys)}
         {...mouseHandlers}
       >
-        {!hideSearchIcon && <SearchIcon name="Search" size={30} />}
+        {searchIcon && searchIcon}
         {children ? (
           <Flex alignContent="flex-start" flexWrap="wrap">
             {children}

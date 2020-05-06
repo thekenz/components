@@ -38,11 +38,7 @@ import {
 } from '../InputChips'
 import { InputSearchControls } from '../InputSearch'
 import { ComboboxMultiContext } from './ComboboxContext'
-import {
-  ComboboxInputCommonProps,
-  comboboxStyles,
-  comboboxPaddingRight,
-} from './ComboboxInput'
+import { ComboboxInputCommonProps, comboboxStyles } from './ComboboxInput'
 import { getComboboxText } from './utils/getComboboxText'
 import { makeHash } from './utils/makeHash'
 import { ComboboxActionType, ComboboxState } from './utils/state'
@@ -205,7 +201,7 @@ export const ComboboxMultiInput = styled(ComboboxMultiInputInternal)`
   }
 
   ${InputSearchControls} {
-    right: ${comboboxPaddingRight};
+    right: 3rem;
   }
 `
 

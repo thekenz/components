@@ -27,7 +27,6 @@
 // Much of the following is pulled from https://github.com/reach/reach-ui
 // because their work is fantastic (but is not in TypeScript)
 
-import btoa from 'btoa'
 import React, { FormEvent, forwardRef, useRef, useContext, Ref } from 'react'
 import styled, { css } from 'styled-components'
 import { useForkedRef, useWrapEvent } from '../../../utils'
@@ -37,6 +36,7 @@ import {
   InputSearchProps,
 } from '../InputSearch'
 import { InputText } from '../InputText'
+import { Icon } from '../../../Icon'
 import { ComboboxContext } from './ComboboxContext'
 import { getComboboxText } from './utils/getComboboxText'
 import { makeHash } from './utils/makeHash'
@@ -170,7 +170,10 @@ export const ComboboxInputInternal = forwardRef(
       <InputSearch
         {...rest}
         {...inputEvents}
-        hideSearchIcon
+        searchIcon={
+          <Icon name="CaretDown" size={20} color="palette.charcoal300" />
+        }
+        searchIconPosition="right"
         ref={ref}
         value={inputValue}
         readOnly={readOnly}
@@ -179,6 +182,7 @@ export const ComboboxInputInternal = forwardRef(
         id={`listbox-${id}`}
         autoComplete="off"
         aria-autocomplete="both"
+        validationType="error"
         aria-activedescendant={
           navigationOption
             ? String(makeHash(navigationOption ? navigationOption.value : ''))
@@ -191,44 +195,7 @@ export const ComboboxInputInternal = forwardRef(
 
 ComboboxInputInternal.displayName = 'ComboboxInputInternal'
 
-const indicatorRaw = `
-<svg
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M7.41 8.58984L12 13.1698L16.59 8.58984L18 9.99984L12 15.9998L6 9.99984L7.41 8.58984Z"
-    fill="currentColor"
-  />
-</svg>`
-export const indicatorSize = '1rem'
-export const indicatorPadding = '.5rem'
-export const comboboxPaddingRight = `calc(2 * ${indicatorPadding} + ${indicatorSize})`
-
-const base64 = typeof window !== 'undefined' ? window.btoa : btoa
-const indicatorPrefix = 'data:image/svg+xml;base64,'
-export const selectIndicatorBG = (color: string) =>
-  `url('${indicatorPrefix}${base64(
-    indicatorRaw.replace('currentColor', color)
-  )}')`
-
-const bgPosition = `right ${indicatorPadding} top calc(${indicatorPadding} + 2px), 0 0`
-
 export const comboboxStyles = css<{ disabled?: boolean; readOnly?: boolean }>`
-  background-image: ${(props) => {
-    const color = props.disabled
-      ? props.theme.colors.palette.charcoal300
-      : props.theme.colors.palette.charcoal500
-    return selectIndicatorBG(color)
-  }};
-  background-repeat: no-repeat, repeat;
-  background-position: ${bgPosition};
-  background-size: ${indicatorSize}, 100%;
-  padding-right: ${comboboxPaddingRight};
-
   ${InputText} {
     cursor: ${(props) => (props.readOnly ? 'default' : 'text')};
   }
