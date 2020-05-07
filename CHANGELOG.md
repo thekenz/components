@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed word wrapping on Confirm
 - `ToggleSwitch` React warning
 - `Prompt`
   - Clears out old `defaultValue` when new `defaultValue` is passed in
