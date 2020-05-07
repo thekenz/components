@@ -30,11 +30,7 @@
 import React, { FormEvent, forwardRef, useRef, useContext, Ref } from 'react'
 import styled, { css } from 'styled-components'
 import { useForkedRef, useWrapEvent } from '../../../utils'
-import {
-  InputSearch,
-  InputSearchControls,
-  InputSearchProps,
-} from '../InputSearch'
+import { InputSearch, InputSearchProps } from '../InputSearch'
 import { InputText } from '../InputText'
 import { Icon } from '../../../Icon'
 import { ComboboxContext } from './ComboboxContext'
@@ -79,7 +75,6 @@ export const ComboboxInputInternal = forwardRef(
       autoComplete = true,
       readOnly = false,
       // wrapped events
-      onClear,
       onChange,
       // might be controlled
       value: controlledValue,
@@ -164,7 +159,6 @@ export const ComboboxInputInternal = forwardRef(
     }
     const inputValue = getComboboxText(inputOption)
 
-    const wrappedOnClear = useWrapEvent(handleClear, onClear)
     const wrappedOnChange = useWrapEvent(handleChange, onChange)
 
     const inputEvents = useInputEvents(props, ComboboxContext)
@@ -185,7 +179,7 @@ export const ComboboxInputInternal = forwardRef(
             )}
             <Icon
               name={isVisible && !disabled ? 'CaretUp' : 'CaretDown'}
-              size={20}
+              size={18}
               color={disabled ? 'palette.charcoal300' : 'palette.charcoal500'}
               mr="xxsmall"
             />
@@ -195,7 +189,6 @@ export const ComboboxInputInternal = forwardRef(
         ref={ref}
         value={inputValue}
         readOnly={readOnly}
-        onClear={wrappedOnClear}
         onChange={wrappedOnChange}
         id={`listbox-${id}`}
         autoComplete="off"
@@ -216,17 +209,6 @@ ComboboxInputInternal.displayName = 'ComboboxInputInternal'
 export const comboboxStyles = css<{ disabled?: boolean; readOnly?: boolean }>`
   ${InputText} {
     cursor: ${(props) => (props.readOnly ? 'default' : 'text')};
-  }
-
-  ${InputSearchControls} {
-    &::after {
-      content: ' ';
-      border-right: 1px solid
-        ${(props) => props.theme.colors.palette.charcoal200};
-      height: 1.5rem;
-      width: ${(props) => props.theme.space.xsmall};
-      pointer-events: none;
-    }
   }
 `
 

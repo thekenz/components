@@ -150,7 +150,6 @@ const SelectComponent = forwardRef(
           autoComplete={false}
           readOnly={!isFilterable}
           onChange={handleInputChange}
-          hideControls={!isClearable}
           selectOnClick={isFilterable}
           ref={ref}
         />

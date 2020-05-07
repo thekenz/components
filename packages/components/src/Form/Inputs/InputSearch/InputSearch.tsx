@@ -51,7 +51,6 @@ import {
 import { useControlWarn, useForkedRef, useWrapEvent } from '../../../utils'
 import { Flex } from '../../../Layout'
 import { Icon } from '../../../Icon'
-import { InputSearchControls } from './InputSearchControls'
 
 const getHeight = (
   py?: ResponsiveValue<CSS.PaddingProperty<TLengthStyledSystem | symbol>>
@@ -69,10 +68,6 @@ const getHeight = (
 
 export interface InputSearchProps extends InputTextProps {
   /**
-   * hides clear button and summary text
-   */
-  hideControls?: boolean
-  /**
    * hides or customizes search Icon
    */
   searchIcon?: ReactElement | false
@@ -80,18 +75,7 @@ export interface InputSearchProps extends InputTextProps {
    * hides or customizes search Icon
    */
   searchIconPosition?: 'left' | 'right'
-  /**
-   * overrides the internal logic that shows the clear icon when there's a value
-   */
-  showClear?: boolean
-  /**
-   * adds text when input value in not empty
-   */
-  summary?: string
-  /**
-   * handle when the user clicks the x icon button to clear the value
-   */
-  onClear?: (e: MouseEvent<HTMLButtonElement>) => void
+
   defaultValue?: string
   value?: string
 
@@ -113,7 +97,6 @@ const InputSearchComponent = forwardRef(
   (
     {
       onChange,
-      onClear,
       onClick,
       onMouseDown,
       onMouseEnter,
@@ -125,19 +108,15 @@ const InputSearchComponent = forwardRef(
       children,
       className,
       defaultValue,
-      hideControls = false,
       searchIcon = <SearchIcon name="Search" size={30} />,
       searchIconPosition = 'left',
-      showClear,
-      summary,
       value: controlledValue = '',
-
       ...props
     }: InputSearchProps,
     forwardedRef: Ref<HTMLInputElement>
   ) => {
     const isControlled = useControlWarn({
-      controllingProps: ['onChange', 'onClear', 'value'],
+      controllingProps: ['onChange', 'value'],
       isControlledCheck: () => onChange !== undefined,
       name: 'InputSearch',
     })
@@ -156,32 +135,10 @@ const InputSearchComponent = forwardRef(
         internalRef.current && internalRef.current.focus()
       })
     }
-
-    const handleClear = (e: MouseEvent<HTMLButtonElement>) => {
-      setValue('')
-      if (onClear) {
-        onClear(e)
-      } else if (onChange) {
-        onChange({
-          currentTarget: { value: '' },
-        } as FormEvent<HTMLInputElement>)
-      }
-    }
-
     const handleChange = (event: FormEvent<HTMLInputElement>) => {
       setValue(event.currentTarget.value)
       onChange && onChange(event)
     }
-
-    const controls = !hideControls && (
-      <InputSearchControls
-        onClear={handleClear}
-        showClear={showClear || inputValue.length > 0}
-        summary={summary}
-        height={getHeight(props.py)}
-        disabled={props.disabled}
-      />
-    )
 
     const mouseHandlers = {
       onClick,
@@ -221,7 +178,6 @@ const InputSearchComponent = forwardRef(
         ) : (
           input
         )}
-        {controls}
       </Flex>
     )
   }

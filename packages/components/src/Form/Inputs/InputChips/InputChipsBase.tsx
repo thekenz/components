@@ -23,12 +23,20 @@
  SOFTWARE.
 
  */
-import React, { FormEvent, forwardRef, KeyboardEvent, Ref } from 'react'
+import React, {
+  FormEvent,
+  forwardRef,
+  KeyboardEvent,
+  Ref,
+  Children,
+  useContext,
+} from 'react'
 import styled from 'styled-components'
 import { MaxHeightProps } from 'styled-system'
 import { Icon } from '../../../Icon'
 import { Chip } from '../../../Chip'
 import { Flex } from '../../../Layout'
+import { ComboboxContext } from '../Combobox/ComboboxContext'
 import { InputText } from '../InputText'
 import {
   InputSearch,
@@ -58,6 +66,7 @@ export interface InputChipsControlProps {
    * you can't easily access the current value via dom API
    */
   onChange: (values: string[]) => void
+  onClear?: () => void
 }
 
 export interface InputChipsCommonProps
@@ -81,10 +90,15 @@ export const InputChipsBaseInternal = forwardRef(
       inputValue,
       onInputChange,
       disabled,
+      validationType,
+      onClear,
       ...props
     }: InputChipsBaseProps & InputChipsInputControlProps,
     ref: Ref<HTMLInputElement>
   ) => {
+    // TODO: get this context wired up
+    const { isVisible } = useContext(ComboboxContext)
+
     function handleDeleteChip(value: string) {
       const newValues = values.filter((v) => value !== v)
       onChange(newValues)
@@ -99,6 +113,7 @@ export const InputChipsBaseInternal = forwardRef(
     }
 
     function handleClear() {
+      onClear && onClear()
       onChange([])
       onInputChange('')
     }
@@ -118,24 +133,47 @@ export const InputChipsBaseInternal = forwardRef(
       onInputChange(e.currentTarget.value)
     }
 
+    const renderSearchControls = values.length > 0
+
     return (
       <InputSearch
         searchIcon={
-          <Icon
-            name="CaretDown"
-            size={20}
-            color={disabled ? 'palette.charcoal300' : 'palette.charcoal500'}
-            mr="xsmall"
-            mt="xxsmall"
-          />
+          <SearchControlGrid>
+            {validationType === 'error' && (
+              <>
+                <Icon
+                  name="Warning"
+                  size={20}
+                  color="palette.red500"
+                  mr="xxsmall"
+                />
+                <SearchControlDivider />
+              </>
+            )}
+            {renderSearchControls && (
+              <>
+                <InputSearchControls
+                  onClear={handleClear}
+                  showClear={true}
+                  disabled={disabled}
+                />
+                <SearchControlDivider />
+              </>
+            )}
+            <Icon
+              name={isVisible ? 'CaretUp' : 'CaretDown'}
+              size={18}
+              color={disabled ? 'palette.charcoal300' : 'palette.charcoal500'}
+              mr="xsmall"
+            />
+          </SearchControlGrid>
         }
         searchIconPosition="right"
         ref={ref}
         value={inputValue}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
-        showClear={values.length > 0}
-        onClear={handleClear}
+        validationType={validationType}
         {...props}
       >
         {chips}
@@ -146,6 +184,31 @@ export const InputChipsBaseInternal = forwardRef(
 
 InputChipsBaseInternal.displayName = 'InputChipsBaseInternal'
 
+const SearchControlGrid = styled.div`
+  display: grid;
+  grid-template-columns: ${({ children }) => {
+    const childArray = Children.toArray(children)
+    switch (childArray.length) {
+      case 3:
+        return '1fr 1px 1fr 1px 1fr'
+      case 2:
+        return '1fr 1px 1fr'
+      default:
+        return '1fr'
+    }
+  }};
+  grid-gap: ${({ theme }) => theme.space.xxsmall};
+  align-items: center;
+  justify-items: center;
+  max-height: 1.9rem;
+`
+
+const SearchControlDivider = styled.div`
+  background: ${({ theme }) => theme.colors.palette.charcoal200};
+  height: 80%;
+  width: 100%;
+`
+
 export const InputChipsBase = styled(InputChipsBaseInternal)`
   position: relative;
   align-items: stretch;
@@ -153,18 +216,11 @@ export const InputChipsBase = styled(InputChipsBaseInternal)`
   ${Flex} {
     flex: 1;
     overflow: auto;
-    padding-right: ${(props) => props.theme.space.xlarge};
   }
 
   ${InputText} {
     width: auto;
     min-width: 25%;
     padding-right: 0;
-  }
-
-  ${InputSearchControls} {
-    position: absolute;
-    top: 2px;
-    right: 0;
   }
 `

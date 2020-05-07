@@ -60,7 +60,6 @@ export const InputSearchControlsInternal = forwardRef(
         onClick={onClear}
         tabIndex={-1}
         disabled={disabled}
-        ml="xsmall"
       />
     )
 
@@ -99,5 +98,4 @@ export const InputSearchControls = styled(InputSearchControlsInternal)`
   height: ${(props) => props.height};
   display: flex;
   align-items: center;
-  margin-left: auto;
 `

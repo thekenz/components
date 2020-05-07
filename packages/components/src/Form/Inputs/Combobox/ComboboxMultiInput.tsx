@@ -195,14 +195,6 @@ ComboboxMultiInputInternal.displayName = 'ComboboxMultiInputInternal'
 export const ComboboxMultiInput = styled(ComboboxMultiInputInternal)`
   ${comboboxStyles}
   padding-right: 0;
-
-  ${Flex} {
-    padding-right: calc(${(props) => props.theme.space.xlarge} * 2);
-  }
-
-  ${InputSearchControls} {
-    right: 2rem;
-  }
 `
 
 ComboboxMultiInput.defaultProps = {
