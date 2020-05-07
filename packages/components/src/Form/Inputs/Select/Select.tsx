@@ -147,6 +147,7 @@ const SelectComponent = forwardRef(
         <ComboboxInput
           {...inputProps}
           {...ariaProps}
+          isClearable={isClearable}
           autoComplete={false}
           readOnly={!isFilterable}
           onChange={handleInputChange}

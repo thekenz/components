@@ -32,7 +32,6 @@ import {
   ListItem,
   SelectMulti,
   SelectOptionProps,
-  Form,
 } from '@looker/components'
 import { options1k } from './options1k'
 

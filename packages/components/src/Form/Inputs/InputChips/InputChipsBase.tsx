@@ -41,7 +41,7 @@ import { InputText } from '../InputText'
 import {
   InputSearch,
   InputSearchProps,
-  InputSearchControls,
+  InputSearchControlGrid,
 } from '../InputSearch'
 
 export interface InputChipsInputControlProps {
@@ -66,6 +66,7 @@ export interface InputChipsControlProps {
    * you can't easily access the current value via dom API
    */
   onChange: (values: string[]) => void
+  onClear?: () => void
 }
 
 export interface InputChipsCommonProps
@@ -90,6 +91,7 @@ export const InputChipsBaseInternal = forwardRef(
       onInputChange,
       disabled,
       validationType,
+      onClear,
       ...props
     }: InputChipsBaseProps & InputChipsInputControlProps,
     ref: Ref<HTMLInputElement>
@@ -111,6 +113,7 @@ export const InputChipsBaseInternal = forwardRef(
     }
 
     function handleClear() {
+      onClear && onClear()
       onChange([])
       onInputChange('')
     }
@@ -135,35 +138,13 @@ export const InputChipsBaseInternal = forwardRef(
     return (
       <InputSearch
         searchIcon={
-          <SearchControlGrid>
-            {validationType === 'error' && (
-              <>
-                <Icon
-                  name="Warning"
-                  size={20}
-                  color="palette.red500"
-                  mr="xxsmall"
-                />
-                <SearchControlDivider />
-              </>
-            )}
-            {renderSearchControls && (
-              <>
-                <InputSearchControls
-                  onClear={handleClear}
-                  showClear={true}
-                  disabled={disabled}
-                />
-                <SearchControlDivider />
-              </>
-            )}
-            <Icon
-              name={isVisible ? 'CaretUp' : 'CaretDown'}
-              size={18}
-              color={disabled ? 'palette.charcoal300' : 'palette.charcoal500'}
-              mr="xsmall"
-            />
-          </SearchControlGrid>
+          <InputSearchControlGrid
+            isVisibleOptions={isVisible}
+            onClear={handleClear}
+            renderSearchControls={renderSearchControls}
+            validationType={validationType}
+            disabled={disabled}
+          />
         }
         searchIconPosition="right"
         ref={ref}
@@ -180,31 +161,6 @@ export const InputChipsBaseInternal = forwardRef(
 )
 
 InputChipsBaseInternal.displayName = 'InputChipsBaseInternal'
-
-const SearchControlGrid = styled.div`
-  display: grid;
-  grid-template-columns: ${({ children }) => {
-    const childArray = Children.toArray(children)
-    switch (childArray.length) {
-      case 3:
-        return '1fr 1px 1fr 1px 1fr'
-      case 2:
-        return '1fr 1px 1fr'
-      default:
-        return '1fr'
-    }
-  }};
-  grid-gap: ${({ theme }) => theme.space.xxsmall};
-  align-items: center;
-  justify-items: center;
-  max-height: 1.9rem;
-`
-
-const SearchControlDivider = styled.div`
-  background: ${({ theme }) => theme.colors.palette.charcoal200};
-  height: 80%;
-  width: 100%;
-`
 
 export const InputChipsBase = styled(InputChipsBaseInternal)`
   position: relative;

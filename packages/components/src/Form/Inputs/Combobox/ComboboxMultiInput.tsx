@@ -30,13 +30,11 @@
 import React, { forwardRef, useRef, useContext, Ref, useCallback } from 'react'
 import styled from 'styled-components'
 import { useForkedRef, useWrapEvent } from '../../../utils'
-import { Flex } from '../../../Layout'
 import {
   InputChipsBase,
   InputChipsCommonProps,
   InputChipsInputControlProps,
 } from '../InputChips'
-import { InputSearchControls } from '../InputSearch'
 import { ComboboxMultiContext } from './ComboboxContext'
 import { ComboboxInputCommonProps, comboboxStyles } from './ComboboxInput'
 import { getComboboxText } from './utils/getComboboxText'
@@ -80,6 +78,7 @@ export const ComboboxMultiInputInternal = forwardRef(
     function handleClear() {
       transition && transition(ComboboxActionType.CLEAR)
       contextOnChange && contextOnChange([])
+      onClear && onClear()
     }
 
     // only called when user removes chips from the input
@@ -153,7 +152,6 @@ export const ComboboxMultiInputInternal = forwardRef(
       inputValue = getComboboxText(navigationOption)
     }
 
-    const wrappedOnClear = useWrapEvent(handleClear, onClear)
     const wrappedOnInputChange = useCallback(
       (value: string) => {
         handleInputChange(value)
@@ -174,7 +172,7 @@ export const ComboboxMultiInputInternal = forwardRef(
         readOnly={readOnly}
         values={inputValues}
         onChange={handleChange}
-        onClear={wrappedOnClear}
+        onClear={handleClear}
         inputValue={inputValue}
         onInputChange={wrappedOnInputChange}
         id={`listbox-${id}`}

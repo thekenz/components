@@ -30,7 +30,11 @@
 import React, { FormEvent, forwardRef, useRef, useContext, Ref } from 'react'
 import styled, { css } from 'styled-components'
 import { useForkedRef, useWrapEvent } from '../../../utils'
-import { InputSearch, InputSearchProps } from '../InputSearch'
+import {
+  InputSearch,
+  InputSearchProps,
+  InputSearchControlGrid,
+} from '../InputSearch'
 import { InputText } from '../InputText'
 import { Icon } from '../../../Icon'
 import { ComboboxContext } from './ComboboxContext'
@@ -62,6 +66,7 @@ export interface ComboboxInputCommonProps {
    * the `true` default.
    */
   autoComplete?: boolean
+  isClearable?: boolean
 }
 
 export interface ComboboxInputProps
@@ -80,6 +85,7 @@ export const ComboboxInputInternal = forwardRef(
       value: controlledValue,
       validationType,
       disabled,
+      isClearable,
       ...rest
     } = props
 
@@ -168,22 +174,13 @@ export const ComboboxInputInternal = forwardRef(
         {...rest}
         {...inputEvents}
         searchIcon={
-          <span>
-            {validationType === 'error' && (
-              <Icon
-                name="Warning"
-                size={20}
-                color="palette.red500"
-                mr="xxsmall"
-              />
-            )}
-            <Icon
-              name={isVisible && !disabled ? 'CaretUp' : 'CaretDown'}
-              size={18}
-              color={disabled ? 'palette.charcoal300' : 'palette.charcoal500'}
-              mr="xxsmall"
-            />
-          </span>
+          <InputSearchControlGrid
+            validationType={validationType}
+            onClear={handleClear}
+            isVisibleOptions={isVisible}
+            disabled={disabled}
+            showClear={isClearable && inputValue}
+          />
         }
         searchIconPosition="right"
         ref={ref}

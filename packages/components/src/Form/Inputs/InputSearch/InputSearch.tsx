@@ -104,7 +104,6 @@ const InputSearchComponent = forwardRef(
       onMouseOut,
       onMouseOver,
       onMouseUp,
-
       children,
       className,
       defaultValue,

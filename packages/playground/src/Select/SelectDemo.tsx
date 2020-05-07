@@ -278,6 +278,16 @@ export const SelectDemo = () => {
               aria-label="Fruits"
               defaultValue="1"
             />
+            <FieldSelect
+              label="Another Grouped Dropdown"
+              name="anotherGroup"
+              width={300}
+              mb="medium"
+              options={optionsWithGroups}
+              aria-label="Fruits"
+              defaultValue="1"
+              isClearable
+            />
           </Form>
         </CardContent>
       </Card>

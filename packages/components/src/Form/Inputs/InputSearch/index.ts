@@ -26,3 +26,4 @@
 
 export * from './InputSearch'
 export * from './InputSearchControls'
+export * from './InputSearchControlGrid'
