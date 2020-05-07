@@ -201,7 +201,7 @@ export const ComboboxMultiInput = styled(ComboboxMultiInputInternal)`
   }
 
   ${InputSearchControls} {
-    right: 3rem;
+    right: 2rem;
   }
 `
 

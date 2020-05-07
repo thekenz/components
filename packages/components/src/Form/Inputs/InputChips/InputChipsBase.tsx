@@ -26,7 +26,7 @@
 import React, { FormEvent, forwardRef, KeyboardEvent, Ref } from 'react'
 import styled from 'styled-components'
 import { MaxHeightProps } from 'styled-system'
-
+import { Icon } from '../../../Icon'
 import { Chip } from '../../../Chip'
 import { Flex } from '../../../Layout'
 import { InputText } from '../InputText'
@@ -80,6 +80,7 @@ export const InputChipsBaseInternal = forwardRef(
       onKeyDown,
       inputValue,
       onInputChange,
+      disabled,
       ...props
     }: InputChipsBaseProps & InputChipsInputControlProps,
     ref: Ref<HTMLInputElement>
@@ -119,7 +120,16 @@ export const InputChipsBaseInternal = forwardRef(
 
     return (
       <InputSearch
-        searchIcon={false}
+        searchIcon={
+          <Icon
+            name="CaretDown"
+            size={20}
+            color={disabled ? 'palette.charcoal300' : 'palette.charcoal500'}
+            mr="xsmall"
+            mt="xxsmall"
+          />
+        }
+        searchIconPosition="right"
         ref={ref}
         value={inputValue}
         onChange={handleInputChange}

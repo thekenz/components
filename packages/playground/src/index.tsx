@@ -28,11 +28,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ComponentsProvider } from '@looker/components'
 import { SelectDemo } from './Select/SelectDemo'
+import { SelectMultiDemo } from './Select/SelectMultiDemo'
 
 const App: React.FC = () => {
   return (
     <ComponentsProvider>
       <SelectDemo />
+      <SelectMultiDemo />
     </ComponentsProvider>
   )
 }

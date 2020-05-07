@@ -32,6 +32,7 @@ import {
   ListItem,
   SelectMulti,
   SelectOptionProps,
+  Form,
 } from '@looker/components'
 import { options1k } from './options1k'
 
@@ -201,6 +202,18 @@ export function SelectMultiDemo() {
         formatCreateLabel={formatCreate}
         removeOnBackspace={false}
         mb="xlarge"
+      />
+
+      <Heading mb="medium" as="h4">
+        Validation Errors
+      </Heading>
+      <SelectMulti
+        name="fruitError"
+        options={selectOptions}
+        placeholder="Search fruits"
+        closeOnSelect
+        mb="xlarge"
+        validationType="error"
       />
     </Box>
   )
