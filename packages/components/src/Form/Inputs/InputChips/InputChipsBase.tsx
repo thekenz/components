@@ -66,7 +66,6 @@ export interface InputChipsControlProps {
    * you can't easily access the current value via dom API
    */
   onChange: (values: string[]) => void
-  onClear?: () => void
 }
 
 export interface InputChipsCommonProps
@@ -91,7 +90,6 @@ export const InputChipsBaseInternal = forwardRef(
       onInputChange,
       disabled,
       validationType,
-      onClear,
       ...props
     }: InputChipsBaseProps & InputChipsInputControlProps,
     ref: Ref<HTMLInputElement>
@@ -113,7 +111,6 @@ export const InputChipsBaseInternal = forwardRef(
     }
 
     function handleClear() {
-      onClear && onClear()
       onChange([])
       onInputChange('')
     }
