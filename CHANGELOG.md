@@ -38,6 +38,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed word wrapping on Confirm
+- `ToggleSwitch` React warning
+- `Prompt`
 - `Prompt` behaves better
 - `ToggleSwitch` React warning
 - `Prompt`
