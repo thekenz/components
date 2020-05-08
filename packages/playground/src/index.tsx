@@ -29,12 +29,14 @@ import ReactDOM from 'react-dom'
 import { ComponentsProvider } from '@looker/components'
 import { SelectDemo } from './Select/SelectDemo'
 import { SelectMultiDemo } from './Select/SelectMultiDemo'
+import { InputSearchDemo } from './Form/InputSearchDemo'
 
 const App: React.FC = () => {
   return (
     <ComponentsProvider>
       <SelectDemo />
       <SelectMultiDemo />
+      <InputSearchDemo />
     </ComponentsProvider>
   )
 }

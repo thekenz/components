@@ -31,8 +31,8 @@ import React, { FormEvent, forwardRef, useRef, useContext, Ref } from 'react'
 import styled, { css } from 'styled-components'
 import { useForkedRef, useWrapEvent } from '../../../utils'
 import {
-  InputSearch,
-  InputSearchProps,
+  InputSearchBase,
+  InputSearchBaseProps,
   InputSearchControlGrid,
 } from '../InputSearch'
 import { InputText } from '../InputText'
@@ -69,7 +69,7 @@ export interface ComboboxInputCommonProps {
 }
 
 export interface ComboboxInputProps
-  extends Omit<InputSearchProps, 'autoComplete'>,
+  extends Omit<InputSearchBaseProps, 'autoComplete'>,
     ComboboxInputCommonProps {}
 
 export const ComboboxInputInternal = forwardRef(
@@ -169,10 +169,11 @@ export const ComboboxInputInternal = forwardRef(
     const inputEvents = useInputEvents(props, ComboboxContext)
 
     return (
-      <InputSearch
+      <InputSearchBase
         {...rest}
         {...inputEvents}
-        searchIcon={
+        searchIcon={false}
+        searchControls={
           <InputSearchControlGrid
             validationType={validationType}
             onClear={handleClear}
@@ -181,7 +182,6 @@ export const ComboboxInputInternal = forwardRef(
             renderSearchControls={!!(isClearable && inputValue)}
           />
         }
-        searchIconPosition="right"
         ref={ref}
         value={inputValue}
         readOnly={readOnly}

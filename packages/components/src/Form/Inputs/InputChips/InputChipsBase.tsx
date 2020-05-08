@@ -30,8 +30,8 @@ import { Chip } from '../../../Chip'
 import { Flex } from '../../../Layout'
 import { InputText } from '../InputText'
 import {
-  InputSearch,
-  InputSearchProps,
+  InputSearchBase,
+  InputSearchBaseProps,
   InputSearchControlGrid,
 } from '../InputSearch'
 
@@ -63,7 +63,7 @@ export interface InputChipsControlProps {
 
 export interface InputChipsCommonProps
   extends Omit<
-      InputSearchProps,
+      InputSearchBaseProps,
       'value' | 'defaultValue' | 'onChange' | 'summary'
     >,
     MaxHeightProps {}
@@ -126,8 +126,9 @@ export const InputChipsBaseInternal = forwardRef(
     const renderSearchControls = values.length > 0
 
     return (
-      <InputSearch
-        searchIcon={
+      <InputSearchBase
+        searchIcon={false}
+        searchControls={
           <InputSearchControlGrid
             isVisibleOptions={isVisibleOptions}
             onClear={handleClear}
@@ -136,7 +137,6 @@ export const InputChipsBaseInternal = forwardRef(
             disabled={disabled}
           />
         }
-        searchIconPosition="right"
         ref={ref}
         value={inputValue}
         onChange={handleInputChange}
@@ -145,7 +145,7 @@ export const InputChipsBaseInternal = forwardRef(
         {...props}
       >
         {chips}
-      </InputSearch>
+      </InputSearchBase>
     )
   }
 )

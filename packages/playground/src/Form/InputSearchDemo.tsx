@@ -23,16 +23,26 @@
  SOFTWARE.
 
  */
-
 import React, { FC } from 'react'
+import { InputSearch, Divider } from '@looker/components'
 
-import { InputSearchBase, InputSearchBaseProps } from './InputSearchBase'
-
-export interface InputSearchProps
-  extends Omit<InputSearchBaseProps, 'searchIcon' | 'searchControls'> {
-  summary?: string
-}
-
-export const InputSearch: FC<InputSearchProps> = (props) => {
-  return <InputSearchBase {...props} />
+export const InputSearchDemo: FC = () => {
+  return (
+    <>
+      <InputSearch placeholder="Type your search" />
+      <Divider my="medium" />
+      <InputSearch placeholder="Type your search" value="test search" />
+      <Divider my="medium" />
+      <InputSearch
+        width="50%"
+        placeholder="Type your search"
+        value="test search 0"
+        summary={'some text'}
+      />
+      <Divider my="medium" />
+      <InputSearch placeholder="Type your search" value="test search 1" />
+      <Divider my="medium" />
+      <InputSearch placeholder="No search icon here" />
+    </>
+  )
 }
