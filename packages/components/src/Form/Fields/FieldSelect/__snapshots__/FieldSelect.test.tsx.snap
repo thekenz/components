@@ -19,20 +19,17 @@ exports[`A FieldSelect 1`] = `
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 0.875rem;
-  -webkit-flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c8 {
+.c12 {
   color: #707781;
-  margin-right: 0.25rem;
-  width: 20px;
-  height: 20px;
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -43,7 +40,7 @@ exports[`A FieldSelect 1`] = `
   display: inline-flex;
 }
 
-.c9 {
+.c8 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -60,7 +57,7 @@ exports[`A FieldSelect 1`] = `
   justify-content: space-evenly;
 }
 
-.c9 input {
+.c8 input {
   border: none;
   background: transparent;
   -webkit-flex: 1;
@@ -73,34 +70,34 @@ exports[`A FieldSelect 1`] = `
   padding: 0;
 }
 
-.c9::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: #939BA5;
 }
 
-.c9::-moz-placeholder {
+.c8::-moz-placeholder {
   color: #939BA5;
 }
 
-.c9:-ms-input-placeholder {
+.c8:-ms-input-placeholder {
   color: #939BA5;
 }
 
-.c9::placeholder {
+.c8::placeholder {
   color: #939BA5;
 }
 
-.c9:hover {
+.c8:hover {
   border-color: #C1C6CC;
 }
 
-.c9:focus,
-.c9:focus-within {
+.c8:focus,
+.c8:focus-within {
   border-color: #9785F2;
   box-shadow: 0 0 0 2px #E8E5FF;
   outline: none;
 }
 
-.c11 {
+.c10 {
   border: solid 1px;
   border-color: #DEE1E5;
   border-radius: 0.25rem;
@@ -114,7 +111,7 @@ exports[`A FieldSelect 1`] = `
   color: #343C42;
 }
 
-.c11:focus {
+.c10:focus {
   outline: none;
 }
 
@@ -153,7 +150,7 @@ exports[`A FieldSelect 1`] = `
   align-items: center;
 }
 
-.c0 .c12 {
+.c0 .c13 {
   grid-area: messages;
 }
 
@@ -162,12 +159,12 @@ exports[`A FieldSelect 1`] = `
   padding-bottom: 0.5rem;
 }
 
-.c0 .c14 {
+.c0 .c15 {
   grid-area: detail;
   justify-self: end;
 }
 
-.c0 .c13 {
+.c0 .c14 {
   margin-right: 0.5rem;
 }
 
@@ -189,7 +186,7 @@ exports[`A FieldSelect 1`] = `
   outline: none;
 }
 
-.c6 .c10 {
+.c6 .c9 {
   border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -203,25 +200,30 @@ exports[`A FieldSelect 1`] = `
   height: calc(36px - 6px);
 }
 
-.c6 .c10::-webkit-search-decoration,
-.c6 .c10::-webkit-search-cancel-button,
-.c6 .c10::-webkit-search-results-button,
-.c6 .c10::-webkit-search-results-decoration {
+.c6 .c9::-webkit-search-decoration,
+.c6 .c9::-webkit-search-cancel-button,
+.c6 .c9::-webkit-search-results-button,
+.c6 .c9::-webkit-search-results-decoration {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-.c7 .c10 {
-  cursor: default;
+.c11 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.25rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-items: center;
+  max-height: 1.9rem;
+  height: 100%;
 }
 
-.c7 .c15::after {
-  content: ' ';
-  border-right: 1px solid #DEE1E5;
-  height: 1.5rem;
-  width: 0.5rem;
-  pointer-events: none;
+.c7 .c9 {
+  cursor: default;
 }
 
 <div
@@ -259,30 +261,8 @@ exports[`A FieldSelect 1`] = `
         onMouseDown={[Function]}
         width="100%"
       >
-        <span>
-          <div
-            className="c8 "
-            color="palette.charcoal500"
-            size={20}
-          >
-            <svg
-              fill="currentColor"
-              height="100%"
-              viewBox="0 0 24 24"
-              width="100%"
-            >
-              <title>
-                Caret Down
-              </title>
-              <path
-                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-        </span>
         <div
-          className="c9 c10 c11"
+          className="c8 c9 c10"
           onClick={[Function]}
         >
           <input
@@ -299,11 +279,35 @@ exports[`A FieldSelect 1`] = `
             value=""
           />
         </div>
+        <div
+          className="c11"
+        >
+          <div
+            className="c12 "
+            color="palette.charcoal500"
+            size={18}
+          >
+            <svg
+              fill="currentColor"
+              height="100%"
+              viewBox="0 0 24 24"
+              width="100%"
+            >
+              <title>
+                Caret Down
+              </title>
+              <path
+                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div
-    className="c12 "
+    className="c13 "
     id="thumbs-up-describedby"
   />
 </div>
@@ -328,17 +332,29 @@ exports[`A FieldSelect with an error validation aligned to the right 1`] = `
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 0.875rem;
-  -webkit-flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c9 {
+.c14 {
   color: #707781;
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.c12 {
+  color: #CC1F36;
   margin-right: 0.25rem;
   width: 20px;
   height: 20px;
@@ -353,10 +369,382 @@ exports[`A FieldSelect with an error validation aligned to the right 1`] = `
 }
 
 .c8 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 36px;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.c8 input {
+  border: none;
+  background: transparent;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-size: 0.875rem;
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding: 0;
+}
+
+.c8::-webkit-input-placeholder {
+  color: #939BA5;
+}
+
+.c8::-moz-placeholder {
+  color: #939BA5;
+}
+
+.c8:-ms-input-placeholder {
+  color: #939BA5;
+}
+
+.c8::placeholder {
+  color: #939BA5;
+}
+
+.c8:hover {
+  border-color: #C1C6CC;
+}
+
+.c8:focus,
+.c8:focus-within {
+  border-color: #9785F2;
+  box-shadow: 0 0 0 2px #E8E5FF;
+  outline: none;
+}
+
+.c10 {
+  border: solid 1px;
+  border-color: #DEE1E5;
+  border-radius: 0.25rem;
+  height: 36px;
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  font-size: 0.875rem;
+  color: #343C42;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c2 {
+  color: #343C42;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.c17 {
+  font-size: 0.75rem;
   color: #CC1F36;
-  margin-right: 0.25rem;
-  width: 20px;
-  height: 20px;
+}
+
+.c0 {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  -webkit-align-items: left;
+  -webkit-box-align: left;
+  -ms-flex-align: left;
+  align-items: left;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "label detail" "input input" "messages messages";
+}
+
+.c0 .c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  grid-area: input;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 .c15 {
+  grid-area: messages;
+}
+
+.c0 > .c1 {
+  grid-area: label;
+  padding-bottom: 0.5rem;
+}
+
+.c0 .c19 {
+  grid-area: detail;
+  justify-self: end;
+}
+
+.c0 .c16 {
+  margin-right: 0.5rem;
+}
+
+.c18 .c9 {
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  box-shadow: none;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  height: calc(36px - 6px);
+}
+
+.c18 .c9::-webkit-search-decoration,
+.c18 .c9::-webkit-search-cancel-button,
+.c18 .c9::-webkit-search-results-button,
+.c18 .c9::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c6 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-color: #ED3B53;
+}
+
+.c6:hover {
+  border-color: #C1C6CC;
+}
+
+.c6:focus-within {
+  border-color: #9785F2;
+  box-shadow: 0 0 0 2px #E8E5FF;
+  outline: none;
+}
+
+.c6:hover {
+  border-color: #CC1F36;
+}
+
+.c6:focus,
+.c6:focus-within {
+  border-color: #CC1F36;
+  box-shadow: 0 0 0 2px #FFE5E9;
+}
+
+.c6 .c9 {
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  box-shadow: none;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 100%;
+  height: calc(36px - 6px);
+}
+
+.c6 .c9::-webkit-search-decoration,
+.c6 .c9::-webkit-search-cancel-button,
+.c6 .c9::-webkit-search-results-button,
+.c6 .c9::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c11 {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  grid-gap: 0.25rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-items: center;
+  max-height: 1.9rem;
+  height: 100%;
+}
+
+.c13 {
+  background: #DEE1E5;
+  height: 70%;
+  width: 100%;
+}
+
+.c7 .c9 {
+  cursor: default;
+}
+
+<div
+  className="c0 "
+>
+  <label
+    className="c1 c2"
+    color="palette.charcoal700"
+    fontSize="xsmall"
+    fontWeight="semiBold"
+    htmlFor="thumbs-up"
+    id="thumbs-up-labeledby"
+  >
+    👍
+  </label>
+  <div
+    className="c3 "
+  >
+    <div
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-owns="listbox-thumbs-up"
+      className="c4 "
+      display="flex"
+      id="thumbs-up"
+      name="thumbsUp"
+      role="combobox"
+      width="100%"
+    >
+      <div
+        aria-invalid={true}
+        className="c5 c6 c7"
+        fontSize="small"
+        onClick={[Function]}
+        onMouseDown={[Function]}
+        width="100%"
+      >
+        <div
+          className="c8 c9 c10"
+          onClick={[Function]}
+        >
+          <input
+            aria-autocomplete="both"
+            aria-describedby="thumbs-up-describedby"
+            autoComplete="off"
+            id="listbox-thumbs-up"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={true}
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="c11"
+        >
+          <div
+            className="c12 "
+            color="palette.red500"
+            size={20}
+          >
+            <svg
+              fill="currentColor"
+              height="100%"
+              viewBox="0 0 22 19"
+              width="100%"
+            >
+              <title>
+                Warning
+              </title>
+              <path
+                d="M0 19h22L11 0 0 19zm12-3h-2v-2h2v2zm0-4h-2V8h2v4z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+          <div
+            className="c13"
+          />
+          <div
+            className="c14 "
+            color="palette.charcoal500"
+            size={18}
+          >
+            <svg
+              fill="currentColor"
+              height="100%"
+              viewBox="0 0 24 24"
+              width="100%"
+            >
+              <title>
+                Caret Down
+              </title>
+              <path
+                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c15 "
+    id="thumbs-up-describedby"
+  >
+    <div
+      className="c16 c17"
+    >
+      This is an error
+    </div>
+  </div>
+</div>
+`;
+
+exports[`A required FieldSelect 1`] = `
+.c6 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.c7 {
+  border: solid 1px;
+  border-color: #DEE1E5;
+  border-radius: 0.25rem;
+  width: 100%;
+  padding-right: 0.25rem;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-size: 0.875rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c14 {
+  color: #707781;
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -448,380 +836,6 @@ exports[`A FieldSelect with an error validation aligned to the right 1`] = `
   font-weight: 600;
 }
 
-.c15 {
-  font-size: 0.75rem;
-  color: #CC1F36;
-}
-
-.c0 {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: 100%;
-  -webkit-align-items: left;
-  -webkit-box-align: left;
-  -ms-flex-align: left;
-  align-items: left;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  display: grid;
-  grid-template-areas: "label detail" "input input" "messages messages";
-}
-
-.c0 .c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  grid-area: input;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c0 .c13 {
-  grid-area: messages;
-}
-
-.c0 > .c1 {
-  grid-area: label;
-  padding-bottom: 0.5rem;
-}
-
-.c0 .c17 {
-  grid-area: detail;
-  justify-self: end;
-}
-
-.c0 .c14 {
-  margin-right: 0.5rem;
-}
-
-.c16 .c11 {
-  border: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: transparent;
-  box-shadow: none;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  width: 100%;
-  height: calc(36px - 6px);
-}
-
-.c16 .c11::-webkit-search-decoration,
-.c16 .c11::-webkit-search-cancel-button,
-.c16 .c11::-webkit-search-results-button,
-.c16 .c11::-webkit-search-results-decoration {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c6 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #FFFFFF;
-  border-color: #ED3B53;
-}
-
-.c6:hover {
-  border-color: #C1C6CC;
-}
-
-.c6:focus-within {
-  border-color: #9785F2;
-  box-shadow: 0 0 0 2px #E8E5FF;
-  outline: none;
-}
-
-.c6:hover {
-  border-color: #CC1F36;
-}
-
-.c6:focus,
-.c6:focus-within {
-  border-color: #CC1F36;
-  box-shadow: 0 0 0 2px #FFE5E9;
-}
-
-.c6 .c11 {
-  border: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: transparent;
-  box-shadow: none;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  width: 100%;
-  height: calc(36px - 6px);
-}
-
-.c6 .c11::-webkit-search-decoration,
-.c6 .c11::-webkit-search-cancel-button,
-.c6 .c11::-webkit-search-results-button,
-.c6 .c11::-webkit-search-results-decoration {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.c7 .c11 {
-  cursor: default;
-}
-
-.c7 .c18::after {
-  content: ' ';
-  border-right: 1px solid #DEE1E5;
-  height: 1.5rem;
-  width: 0.5rem;
-  pointer-events: none;
-}
-
-<div
-  className="c0 "
->
-  <label
-    className="c1 c2"
-    color="palette.charcoal700"
-    fontSize="xsmall"
-    fontWeight="semiBold"
-    htmlFor="thumbs-up"
-    id="thumbs-up-labeledby"
-  >
-    👍
-  </label>
-  <div
-    className="c3 "
-  >
-    <div
-      aria-expanded={false}
-      aria-haspopup="listbox"
-      aria-owns="listbox-thumbs-up"
-      className="c4 "
-      display="flex"
-      id="thumbs-up"
-      name="thumbsUp"
-      role="combobox"
-      width="100%"
-    >
-      <div
-        aria-invalid={true}
-        className="c5 c6 c7"
-        fontSize="small"
-        onClick={[Function]}
-        onMouseDown={[Function]}
-        width="100%"
-      >
-        <span>
-          <div
-            className="c8 "
-            color="palette.red500"
-            size={20}
-          >
-            <svg
-              fill="currentColor"
-              height="100%"
-              viewBox="0 0 22 19"
-              width="100%"
-            >
-              <title>
-                Warning
-              </title>
-              <path
-                d="M0 19h22L11 0 0 19zm12-3h-2v-2h2v2zm0-4h-2V8h2v4z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-          <div
-            className="c9 "
-            color="palette.charcoal500"
-            size={20}
-          >
-            <svg
-              fill="currentColor"
-              height="100%"
-              viewBox="0 0 24 24"
-              width="100%"
-            >
-              <title>
-                Caret Down
-              </title>
-              <path
-                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-        </span>
-        <div
-          className="c10 c11 c12"
-          onClick={[Function]}
-        >
-          <input
-            aria-autocomplete="both"
-            aria-describedby="thumbs-up-describedby"
-            autoComplete="off"
-            id="listbox-thumbs-up"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            readOnly={true}
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="c13 "
-    id="thumbs-up-describedby"
-  >
-    <div
-      className="c14 c15"
-    >
-      This is an error
-    </div>
-  </div>
-</div>
-`;
-
-exports[`A required FieldSelect 1`] = `
-.c6 {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 0.5rem;
-}
-
-.c7 {
-  border: solid 1px;
-  border-color: #DEE1E5;
-  border-radius: 0.25rem;
-  width: 100%;
-  padding-right: 0.25rem;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  font-size: 0.875rem;
-  -webkit-flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.c10 {
-  color: #707781;
-  margin-right: 0.25rem;
-  width: 20px;
-  height: 20px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.c11 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #FFFFFF;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  height: 36px;
-  -webkit-box-pack: space-evenly;
-  -webkit-justify-content: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly;
-}
-
-.c11 input {
-  border: none;
-  background: transparent;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  font-size: 0.875rem;
-  height: 100%;
-  width: 100%;
-  outline: none;
-  padding: 0;
-}
-
-.c11::-webkit-input-placeholder {
-  color: #939BA5;
-}
-
-.c11::-moz-placeholder {
-  color: #939BA5;
-}
-
-.c11:-ms-input-placeholder {
-  color: #939BA5;
-}
-
-.c11::placeholder {
-  color: #939BA5;
-}
-
-.c11:hover {
-  border-color: #C1C6CC;
-}
-
-.c11:focus,
-.c11:focus-within {
-  border-color: #9785F2;
-  box-shadow: 0 0 0 2px #E8E5FF;
-  outline: none;
-}
-
-.c13 {
-  border: solid 1px;
-  border-color: #DEE1E5;
-  border-radius: 0.25rem;
-  height: 36px;
-  width: 100%;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  font-size: 0.875rem;
-  color: #343C42;
-}
-
-.c13:focus {
-  outline: none;
-}
-
-.c2 {
-  color: #343C42;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
 .c4 {
   position: absolute;
   height: 1px;
@@ -865,7 +879,7 @@ exports[`A required FieldSelect 1`] = `
   align-items: center;
 }
 
-.c0 .c14 {
+.c0 .c15 {
   grid-area: messages;
 }
 
@@ -874,12 +888,12 @@ exports[`A required FieldSelect 1`] = `
   padding-bottom: 0.5rem;
 }
 
-.c0 .c16 {
+.c0 .c17 {
   grid-area: detail;
   justify-self: end;
 }
 
-.c0 .c15 {
+.c0 .c16 {
   margin-right: 0.5rem;
 }
 
@@ -901,7 +915,7 @@ exports[`A required FieldSelect 1`] = `
   outline: none;
 }
 
-.c8 .c12 {
+.c8 .c11 {
   border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -915,25 +929,30 @@ exports[`A required FieldSelect 1`] = `
   height: calc(36px - 6px);
 }
 
-.c8 .c12::-webkit-search-decoration,
-.c8 .c12::-webkit-search-cancel-button,
-.c8 .c12::-webkit-search-results-button,
-.c8 .c12::-webkit-search-results-decoration {
+.c8 .c11::-webkit-search-decoration,
+.c8 .c11::-webkit-search-cancel-button,
+.c8 .c11::-webkit-search-results-button,
+.c8 .c11::-webkit-search-results-decoration {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-.c9 .c12 {
-  cursor: default;
+.c13 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.25rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-items: center;
+  max-height: 1.9rem;
+  height: 100%;
 }
 
-.c9 .c17::after {
-  content: ' ';
-  border-right: 1px solid #DEE1E5;
-  height: 1.5rem;
-  width: 0.5rem;
-  pointer-events: none;
+.c9 .c11 {
+  cursor: default;
 }
 
 <div
@@ -982,30 +1001,8 @@ exports[`A required FieldSelect 1`] = `
         onMouseDown={[Function]}
         width="100%"
       >
-        <span>
-          <div
-            className="c10 "
-            color="palette.charcoal500"
-            size={20}
-          >
-            <svg
-              fill="currentColor"
-              height="100%"
-              viewBox="0 0 24 24"
-              width="100%"
-            >
-              <title>
-                Caret Down
-              </title>
-              <path
-                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-        </span>
         <div
-          className="c11 c12 c13"
+          className="c10 c11 c12"
           onClick={[Function]}
         >
           <input
@@ -1022,11 +1019,35 @@ exports[`A required FieldSelect 1`] = `
             value=""
           />
         </div>
+        <div
+          className="c13"
+        >
+          <div
+            className="c14 "
+            color="palette.charcoal500"
+            size={18}
+          >
+            <svg
+              fill="currentColor"
+              height="100%"
+              viewBox="0 0 24 24"
+              width="100%"
+            >
+              <title>
+                Caret Down
+              </title>
+              <path
+                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div
-    className="c14 "
+    className="c15 "
     id="thumbs-up-describedby"
   />
 </div>
@@ -1051,20 +1072,17 @@ exports[`FieldSelect supports labelWeight 1`] = `
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 0.875rem;
-  -webkit-flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
-  flex-direction: row-reverse;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c8 {
+.c12 {
   color: #707781;
-  margin-right: 0.25rem;
-  width: 20px;
-  height: 20px;
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1075,7 +1093,7 @@ exports[`FieldSelect supports labelWeight 1`] = `
   display: inline-flex;
 }
 
-.c9 {
+.c8 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -1092,7 +1110,7 @@ exports[`FieldSelect supports labelWeight 1`] = `
   justify-content: space-evenly;
 }
 
-.c9 input {
+.c8 input {
   border: none;
   background: transparent;
   -webkit-flex: 1;
@@ -1105,34 +1123,34 @@ exports[`FieldSelect supports labelWeight 1`] = `
   padding: 0;
 }
 
-.c9::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: #939BA5;
 }
 
-.c9::-moz-placeholder {
+.c8::-moz-placeholder {
   color: #939BA5;
 }
 
-.c9:-ms-input-placeholder {
+.c8:-ms-input-placeholder {
   color: #939BA5;
 }
 
-.c9::placeholder {
+.c8::placeholder {
   color: #939BA5;
 }
 
-.c9:hover {
+.c8:hover {
   border-color: #C1C6CC;
 }
 
-.c9:focus,
-.c9:focus-within {
+.c8:focus,
+.c8:focus-within {
   border-color: #9785F2;
   box-shadow: 0 0 0 2px #E8E5FF;
   outline: none;
 }
 
-.c11 {
+.c10 {
   border: solid 1px;
   border-color: #DEE1E5;
   border-radius: 0.25rem;
@@ -1146,7 +1164,7 @@ exports[`FieldSelect supports labelWeight 1`] = `
   color: #343C42;
 }
 
-.c11:focus {
+.c10:focus {
   outline: none;
 }
 
@@ -1185,7 +1203,7 @@ exports[`FieldSelect supports labelWeight 1`] = `
   align-items: center;
 }
 
-.c0 .c12 {
+.c0 .c13 {
   grid-area: messages;
 }
 
@@ -1194,12 +1212,12 @@ exports[`FieldSelect supports labelWeight 1`] = `
   padding-bottom: 0.5rem;
 }
 
-.c0 .c14 {
+.c0 .c15 {
   grid-area: detail;
   justify-self: end;
 }
 
-.c0 .c13 {
+.c0 .c14 {
   margin-right: 0.5rem;
 }
 
@@ -1221,7 +1239,7 @@ exports[`FieldSelect supports labelWeight 1`] = `
   outline: none;
 }
 
-.c6 .c10 {
+.c6 .c9 {
   border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1235,25 +1253,30 @@ exports[`FieldSelect supports labelWeight 1`] = `
   height: calc(36px - 6px);
 }
 
-.c6 .c10::-webkit-search-decoration,
-.c6 .c10::-webkit-search-cancel-button,
-.c6 .c10::-webkit-search-results-button,
-.c6 .c10::-webkit-search-results-decoration {
+.c6 .c9::-webkit-search-decoration,
+.c6 .c9::-webkit-search-cancel-button,
+.c6 .c9::-webkit-search-results-button,
+.c6 .c9::-webkit-search-results-decoration {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-.c7 .c10 {
-  cursor: default;
+.c11 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.25rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-items: center;
+  max-height: 1.9rem;
+  height: 100%;
 }
 
-.c7 .c15::after {
-  content: ' ';
-  border-right: 1px solid #DEE1E5;
-  height: 1.5rem;
-  width: 0.5rem;
-  pointer-events: none;
+.c7 .c9 {
+  cursor: default;
 }
 
 <div
@@ -1291,30 +1314,8 @@ exports[`FieldSelect supports labelWeight 1`] = `
         onMouseDown={[Function]}
         width="100%"
       >
-        <span>
-          <div
-            className="c8 "
-            color="palette.charcoal500"
-            size={20}
-          >
-            <svg
-              fill="currentColor"
-              height="100%"
-              viewBox="0 0 24 24"
-              width="100%"
-            >
-              <title>
-                Caret Down
-              </title>
-              <path
-                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-        </span>
         <div
-          className="c9 c10 c11"
+          className="c8 c9 c10"
           onClick={[Function]}
         >
           <input
@@ -1331,11 +1332,35 @@ exports[`FieldSelect supports labelWeight 1`] = `
             value=""
           />
         </div>
+        <div
+          className="c11"
+        >
+          <div
+            className="c12 "
+            color="palette.charcoal500"
+            size={18}
+          >
+            <svg
+              fill="currentColor"
+              height="100%"
+              viewBox="0 0 24 24"
+              width="100%"
+            >
+              <title>
+                Caret Down
+              </title>
+              <path
+                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div
-    className="c12 "
+    className="c13 "
     id="thumbs-up-describedby"
   />
 </div>

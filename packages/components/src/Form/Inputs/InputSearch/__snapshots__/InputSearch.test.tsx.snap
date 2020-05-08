@@ -10,9 +10,6 @@ exports[`InputSearch default 1`] = `
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 0.875rem;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -201,9 +198,6 @@ exports[`InputSearch searchIcon={false} removes the icon 1`] = `
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 0.875rem;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
