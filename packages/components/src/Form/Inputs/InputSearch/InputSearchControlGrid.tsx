@@ -23,7 +23,7 @@
  SOFTWARE.
 
  */
-import React, { FC } from 'react'
+import React, { Children, FC } from 'react'
 import styled from 'styled-components'
 import { Icon } from '../../../Icon'
 import { InputSearchControls } from './InputSearchControls'
@@ -88,10 +88,11 @@ const SearchControlGrid = styled.div`
   align-items: center;
   justify-items: center;
   max-height: 1.9rem;
+  height: 100%;
 `
 
 const SearchControlDivider = styled.div`
   background: ${({ theme }) => theme.colors.palette.charcoal200};
-  height: 80%;
+  height: 70%;
   width: 100%;
 `

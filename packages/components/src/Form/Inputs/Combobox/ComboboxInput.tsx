@@ -179,7 +179,7 @@ export const ComboboxInputInternal = forwardRef(
             onClear={handleClear}
             isVisibleOptions={isVisible}
             disabled={disabled}
-            showClear={isClearable && inputValue}
+            renderSearchControls={!!(isClearable && inputValue)}
           />
         }
         searchIconPosition="right"
