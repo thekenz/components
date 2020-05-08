@@ -29,7 +29,7 @@
 
 import React, { forwardRef, useRef, useContext, Ref, useCallback } from 'react'
 import styled from 'styled-components'
-import { useForkedRef, useWrapEvent } from '../../../utils'
+import { useForkedRef } from '../../../utils'
 import {
   InputChipsBase,
   InputChipsCommonProps,
@@ -46,7 +46,9 @@ import { useInputPropRefs } from './utils/useInputPropRefs'
 export interface ComboboxMultiInputProps
   extends Omit<InputChipsCommonProps, 'autoComplete'>,
     ComboboxInputCommonProps,
-    Partial<InputChipsInputControlProps> {}
+    Partial<InputChipsInputControlProps> {
+  onClear: () => void
+}
 
 export const ComboboxMultiInputInternal = forwardRef(
   (props: ComboboxMultiInputProps, forwardedRef: Ref<HTMLInputElement>) => {
@@ -71,6 +73,7 @@ export const ComboboxMultiInputInternal = forwardRef(
       state,
       transition,
       id,
+      isVisible,
     } = useContext(ComboboxMultiContext)
 
     useInputPropRefs(props, ComboboxMultiContext)
@@ -176,6 +179,7 @@ export const ComboboxMultiInputInternal = forwardRef(
         inputValue={inputValue}
         onInputChange={wrappedOnInputChange}
         id={`listbox-${id}`}
+        isVisibleOptions={isVisible}
         autoComplete="off"
         aria-autocomplete="both"
         aria-activedescendant={

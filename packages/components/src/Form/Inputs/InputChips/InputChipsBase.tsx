@@ -23,20 +23,11 @@
  SOFTWARE.
 
  */
-import React, {
-  FormEvent,
-  forwardRef,
-  KeyboardEvent,
-  Ref,
-  Children,
-  useContext,
-} from 'react'
+import React, { FormEvent, forwardRef, KeyboardEvent, Ref } from 'react'
 import styled from 'styled-components'
 import { MaxHeightProps } from 'styled-system'
-import { Icon } from '../../../Icon'
 import { Chip } from '../../../Chip'
 import { Flex } from '../../../Layout'
-import { ComboboxContext } from '../Combobox/ComboboxContext'
 import { InputText } from '../InputText'
 import {
   InputSearch,
@@ -53,6 +44,7 @@ export interface InputChipsInputControlProps {
    * callback when the input text changes (use with inputValue to control the input text)
    */
   onInputChange: (value: string) => void
+  isVisibleOptions?: boolean
 }
 
 export interface InputChipsControlProps {
@@ -92,13 +84,11 @@ export const InputChipsBaseInternal = forwardRef(
       disabled,
       validationType,
       onClear,
+      isVisibleOptions,
       ...props
     }: InputChipsBaseProps & InputChipsInputControlProps,
     ref: Ref<HTMLInputElement>
   ) => {
-    // TODO: get this context wired up
-    const { isVisible } = useContext(ComboboxContext)
-
     function handleDeleteChip(value: string) {
       const newValues = values.filter((v) => value !== v)
       onChange(newValues)
@@ -139,7 +129,7 @@ export const InputChipsBaseInternal = forwardRef(
       <InputSearch
         searchIcon={
           <InputSearchControlGrid
-            isVisibleOptions={isVisible}
+            isVisibleOptions={isVisibleOptions}
             onClear={handleClear}
             renderSearchControls={renderSearchControls}
             validationType={validationType}

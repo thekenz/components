@@ -36,7 +36,6 @@ import {
   InputSearchControlGrid,
 } from '../InputSearch'
 import { InputText } from '../InputText'
-import { Icon } from '../../../Icon'
 import { ComboboxContext } from './ComboboxContext'
 import { getComboboxText } from './utils/getComboboxText'
 import { makeHash } from './utils/makeHash'
