@@ -29,11 +29,8 @@ import { MaxHeightProps } from 'styled-system'
 import { Chip } from '../../../Chip'
 import { Flex } from '../../../Layout'
 import { InputText } from '../InputText'
-import {
-  InputSearchBase,
-  InputSearchBaseProps,
-  InputSearchControlGrid,
-} from '../InputSearch'
+import { InputSearchBase, InputSearchBaseProps } from '../InputSearch'
+import { ComboboxInputControls } from '../Combobox/ComboboxInputControls'
 
 export interface InputChipsInputControlProps {
   /**
@@ -129,7 +126,7 @@ export const InputChipsBaseInternal = forwardRef(
       <InputSearchBase
         searchIcon={false}
         searchControls={
-          <InputSearchControlGrid
+          <ComboboxInputControls
             isVisibleOptions={isVisibleOptions}
             onClear={handleClear}
             renderSearchControls={renderSearchControls}

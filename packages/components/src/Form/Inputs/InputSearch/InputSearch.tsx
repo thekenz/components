@@ -28,7 +28,7 @@ import React, { FC, useEffect, useState, FormEvent } from 'react'
 import styled from 'styled-components'
 import { Icon } from '../../../Icon'
 import { InputSearchBase, InputSearchBaseProps } from './InputSearchBase'
-import { InputSearchControls } from './InputSearchControls'
+import { InputSearchClear } from './InputSearchClear'
 
 export interface InputSearchProps
   extends Omit<
@@ -80,7 +80,7 @@ export const InputSearch: FC<InputSearchProps> = ({
       }
       searchControls={
         !hideControls ? (
-          <InputSearchControls
+          <InputSearchClear
             onClear={handleClear}
             disabled={disabled}
             summary={summary}

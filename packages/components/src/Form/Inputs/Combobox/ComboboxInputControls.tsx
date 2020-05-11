@@ -26,9 +26,9 @@
 import React, { Children, FC } from 'react'
 import styled from 'styled-components'
 import { Icon } from '../../../Icon'
-import { InputSearchControls } from './InputSearchControls'
+import { InputSearchClear } from '../InputSearch/InputSearchClear'
 
-interface InputSearchControlGridProps {
+interface ComboboxInputControlsProps {
   validationType?: 'error'
   renderSearchControls?: boolean
   isVisibleOptions?: boolean
@@ -36,7 +36,7 @@ interface InputSearchControlGridProps {
   onClear: () => void
 }
 
-export const InputSearchControlGrid: FC<InputSearchControlGridProps> = ({
+export const ComboboxInputControls: FC<ComboboxInputControlsProps> = ({
   validationType,
   renderSearchControls,
   onClear,
@@ -53,7 +53,7 @@ export const InputSearchControlGrid: FC<InputSearchControlGridProps> = ({
       )}
       {renderSearchControls && (
         <>
-          <InputSearchControls
+          <InputSearchClear
             onClear={onClear}
             showClear={true}
             disabled={disabled}

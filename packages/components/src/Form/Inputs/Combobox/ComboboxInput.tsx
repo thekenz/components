@@ -30,12 +30,9 @@
 import React, { FormEvent, forwardRef, useRef, useContext, Ref } from 'react'
 import styled, { css } from 'styled-components'
 import { useForkedRef, useWrapEvent } from '../../../utils'
-import {
-  InputSearchBase,
-  InputSearchBaseProps,
-  InputSearchControlGrid,
-} from '../InputSearch'
+import { InputSearchBase, InputSearchBaseProps } from '../InputSearch'
 import { InputText } from '../InputText'
+import { ComboboxInputControls } from './ComboboxInputControls'
 import { ComboboxContext } from './ComboboxContext'
 import { getComboboxText } from './utils/getComboboxText'
 import { makeHash } from './utils/makeHash'
@@ -174,7 +171,7 @@ export const ComboboxInputInternal = forwardRef(
         {...inputEvents}
         searchIcon={false}
         searchControls={
-          <InputSearchControlGrid
+          <ComboboxInputControls
             validationType={validationType}
             onClear={handleClear}
             isVisibleOptions={isVisible}
