@@ -27,10 +27,10 @@
 import React, { FC, RefObject } from 'react'
 import { HotKeys, ObserveKeys } from 'react-hotkeys'
 import { palette } from '@looker/design-tokens'
-import { InputSearch, InputSearchProps } from '../../Form/Inputs'
+import { InputSearchBase, InputSearchBaseProps } from '../../Form/Inputs'
 import { moveFocus } from '../moveFocus'
 
-export interface MenuSearchProps extends Omit<InputSearchProps, 'as'> {
+export interface MenuSearchProps extends Omit<InputSearchBaseProps, 'as'> {
   /**
    * Specify ref of the Menu element that MenuSearch is related to.
    */
@@ -47,7 +47,7 @@ export const MenuSearch: FC<MenuSearchProps> = ({ menuRef, ...props }) => {
       }}
     >
       <ObserveKeys except={[]} only={['down', 'up']}>
-        <InputSearch
+        <InputSearchBase
           searchIcon={false}
           borderRadius={0}
           border="none"

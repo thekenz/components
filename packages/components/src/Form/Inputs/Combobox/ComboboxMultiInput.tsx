@@ -47,7 +47,7 @@ export interface ComboboxMultiInputProps
   extends Omit<InputChipsCommonProps, 'autoComplete'>,
     ComboboxInputCommonProps,
     Partial<InputChipsInputControlProps> {
-  onClear: () => void
+  onClear?: () => void
 }
 
 export const ComboboxMultiInputInternal = forwardRef(

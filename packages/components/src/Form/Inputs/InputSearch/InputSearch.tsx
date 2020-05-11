@@ -24,15 +24,59 @@
 
  */
 
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState, FormEvent } from 'react'
 
 import { InputSearchBase, InputSearchBaseProps } from './InputSearchBase'
+import { InputSearchControls } from './InputSearchControls'
 
 export interface InputSearchProps
-  extends Omit<InputSearchBaseProps, 'searchIcon' | 'searchControls'> {
+  extends Omit<
+    InputSearchBaseProps,
+    'searchIcon' | 'searchControls' | 'validationType'
+  > {
   summary?: string
+  hideControls?: boolean
 }
 
-export const InputSearch: FC<InputSearchProps> = (props) => {
-  return <InputSearchBase {...props} />
+export const InputSearch: FC<InputSearchProps> = ({
+  summary,
+  value: valueProp,
+  disabled,
+  hideControls = false,
+  onChange,
+  ...props
+}) => {
+  const [value, setValue] = useState(valueProp)
+
+  const handleClear = () => {
+    setValue('')
+  }
+
+  const handleChange = (e: FormEvent<HTMLInputElement>) => {
+    const newValue = (e.target as HTMLInputElement).value
+    setValue(newValue)
+    onChange && onChange(e)
+  }
+
+  useEffect(() => {
+    setValue(valueProp)
+  }, [valueProp])
+
+  return (
+    <InputSearchBase
+      {...props}
+      value={value}
+      onChange={handleChange}
+      searchControls={
+        !hideControls ? (
+          <InputSearchControls
+            onClear={handleClear}
+            disabled={disabled}
+            summary={summary}
+            showClear={!!(value && value.length >= 0)}
+          />
+        ) : undefined
+      }
+    />
+  )
 }
