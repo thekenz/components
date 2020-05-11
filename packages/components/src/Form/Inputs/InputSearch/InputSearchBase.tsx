@@ -50,7 +50,6 @@ import {
 } from '../InputText'
 import { useControlWarn, useForkedRef, useWrapEvent } from '../../../utils'
 import { Flex } from '../../../Layout'
-import { Icon } from '../../../Icon'
 
 const getHeight = (
   py?: ResponsiveValue<CSS.PaddingProperty<TLengthStyledSystem | symbol>>
@@ -84,11 +83,6 @@ export interface InputSearchBaseProps extends InputTextProps {
   onMouseUp?: (e: MouseEvent<HTMLDivElement>) => void
 }
 
-export const SearchIcon = styled(Icon)`
-  color: ${(props) => props.theme.colors.palette.charcoal400};
-  padding-left: ${(props) => props.theme.space.small};
-`
-
 const InputSearchBaseComponent = forwardRef(
   (
     {
@@ -103,7 +97,7 @@ const InputSearchBaseComponent = forwardRef(
       children,
       className,
       defaultValue,
-      searchIcon = <SearchIcon name="Search" size={30} />,
+      searchIcon,
       searchControls,
       value: controlledValue = '',
       ...props

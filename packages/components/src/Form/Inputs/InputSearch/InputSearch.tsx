@@ -25,7 +25,8 @@
  */
 
 import React, { FC, useEffect, useState, FormEvent } from 'react'
-
+import styled from 'styled-components'
+import { Icon } from '../../../Icon'
 import { InputSearchBase, InputSearchBaseProps } from './InputSearchBase'
 import { InputSearchControls } from './InputSearchControls'
 
@@ -36,13 +37,20 @@ export interface InputSearchProps
   > {
   summary?: string
   hideControls?: boolean
+  hideSearchIcon?: boolean
 }
+
+export const SearchIcon = styled(Icon)`
+  color: ${(props) => props.theme.colors.palette.charcoal400};
+  padding-left: ${(props) => props.theme.space.small};
+`
 
 export const InputSearch: FC<InputSearchProps> = ({
   summary,
   value: valueProp,
   disabled,
   hideControls = false,
+  hideSearchIcon = false,
   onChange,
   ...props
 }) => {
@@ -67,6 +75,9 @@ export const InputSearch: FC<InputSearchProps> = ({
       {...props}
       value={value}
       onChange={handleChange}
+      searchIcon={
+        hideSearchIcon ? undefined : <SearchIcon name="Search" size={30} />
+      }
       searchControls={
         !hideControls ? (
           <InputSearchControls
