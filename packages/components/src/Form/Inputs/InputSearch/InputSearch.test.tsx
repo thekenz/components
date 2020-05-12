@@ -31,61 +31,72 @@ import {
   assertSnapshot,
   renderWithTheme,
 } from '@looker/components-test-utils'
-import { InputSearchBase } from './InputSearchBase'
+import { fireEvent } from '@testing-library/react'
+import { InputSearch } from './InputSearch'
 
-test('InputSearchBase default', () => {
-  assertSnapshot(<InputSearchBase />)
+test('InputSearch default', () => {
+  assertSnapshot(<InputSearch />)
 })
 
-test('InputSearchBase searchIcon={false} removes the icon', () => {
-  assertSnapshot(<InputSearchBase searchIcon={false} />)
+test('InputSearch searchIcon={false} removes the icon', () => {
+  assertSnapshot(<InputSearch hideSearchIcon />)
 })
 
-test('InputSearchBase displays placeholder', () => {
-  const wrapper = mountWithTheme(
-    <InputSearchBase placeholder="Type your search" />
-  )
+test('InputSearch displays placeholder', () => {
+  const wrapper = mountWithTheme(<InputSearch placeholder="Type your search" />)
   expect(wrapper.props().children.props.placeholder).toEqual('Type your search')
 })
 
-test('InputSearchBase displays value', () => {
-  const wrapper = mountWithTheme(<InputSearchBase value="start value" />)
+test('InputSearch displays value', () => {
+  const wrapper = mountWithTheme(<InputSearch value="start value" />)
   expect(wrapper.props().children.props.value).toEqual('start value')
 })
 
-test('InputSearchBase displays summary', () => {
+test('InputSearch displays summary', () => {
   const wrapper = mountWithTheme(
-    <InputSearchBase value="start value" summary="summary value" />
+    <InputSearch value="start value" summary="summary value" />
   )
   expect(wrapper.props().children.props.summary).toEqual('summary value')
 })
 
-test('InputSearchBase clears bottom when input value is empty', () => {
-  const wrapper = mountWithTheme(<InputSearchBase value="start value" />)
+test('InputSearch clears bottom when input value is empty', () => {
+  const wrapper = mountWithTheme(<InputSearch value="start value" />)
 
   expect(wrapper.find('input').props().value).toEqual('start value')
   wrapper.find('button').simulate('click')
   expect(wrapper.find('input').props().value).toEqual('')
 })
 
-test('InputSearchBase shows clear button and summary', () => {
+test('InputSearch shows clear button and summary', () => {
   const wrapper = mountWithTheme(
-    <InputSearchBase value="start value" summary="summary value" />
+    <InputSearch value="start value" summary="summary value" />
   )
   expect(wrapper.find('button').exists()).toEqual(true)
   expect(wrapper.props().children.props.summary).toEqual('summary value')
 })
 
-test('InputSearchBase hides controls when using hideControls option', () => {
+test('InputSearch hides controls when using hideControls option', () => {
   const wrapper = mountWithTheme(
-    <InputSearchBase value="start value" summary="summary value" />
+    <InputSearch value="start value" summary="summary value" hideControls />
   )
   expect(wrapper.find('button').exists()).toEqual(false)
 })
 
-test('InputSearchBase accepts a defaultValue', () => {
+test('InputSearch onClear can be updated by user', () => {
+  const onClear = jest.fn()
+
+  const { getByRole } = renderWithTheme(
+    <InputSearch value="Search" onClear={onClear} />
+  )
+
+  const inputButton = getByRole('button')
+  inputButton && fireEvent.click(inputButton)
+  expect(onClear).toHaveBeenCalled()
+})
+
+test('InputSearch accepts a defaultValue', () => {
   const { getByPlaceholderText } = renderWithTheme(
-    <InputSearchBase defaultValue="replace me" placeholder="type here" />
+    <InputSearch defaultValue="replace me" placeholder="type here" />
   )
   const input = getByPlaceholderText('type here')
   expect(input).toHaveValue('replace me')
