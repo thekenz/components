@@ -54,9 +54,10 @@ export const InputSearch: FC<InputSearchProps> = ({
   hideSearchIcon = false,
   onChange,
   onClear,
+  defaultValue,
   ...props
 }) => {
-  const [value, setValue] = useState(valueProp)
+  const [value, setValue] = useState<string | undefined>()
 
   const handleClear = (e: MouseEvent<HTMLButtonElement>) => {
     setValue('')
@@ -69,8 +70,10 @@ export const InputSearch: FC<InputSearchProps> = ({
     onChange && onChange(e)
   }
 
+  // only update when valueProp changes, but not defaultValue
   useEffect(() => {
-    setValue(valueProp)
+    setValue(valueProp || defaultValue)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valueProp])
 
   return (

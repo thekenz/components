@@ -43,6 +43,11 @@ export const InputSearchDemo: FC = () => {
       <InputSearch placeholder="Type your search" value="test search 1" />
       <Divider my="medium" />
       <InputSearch placeholder="No search icon here" />
+      <Divider my="medium" />
+      <InputSearch
+        defaultValue="defaultValue prop works"
+        placeholder="displays a default value"
+      />
     </>
   )
 }
